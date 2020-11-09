@@ -1,5 +1,7 @@
-package application;
+package controller;
 	
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -29,7 +31,7 @@ private Stage primaryStage;
 			
 			Scene scene = new Scene(pane);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("FxCalculator");
+			primaryStage.setTitle("Astro Catcher");
 			primaryStage.setResizable(false);
 			primaryStage.show();
 			
