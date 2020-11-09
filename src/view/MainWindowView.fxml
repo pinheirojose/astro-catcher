@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.MainWindowController">
+   <children>
+      <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #242d3e;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Label layoutX="209.0" layoutY="14.0" text="ASTRO CATCHER" textFill="WHITE" AnchorPane.leftAnchor="209.0">
+         <font>
+            <Font size="77.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="174.0" text="Nasa API:" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="201.0" text="Date:" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="228.0" text="Type:" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="255.0" text="Credit:" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="282.0" text="Explanation:" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="60.0" layoutY="567.0" mnemonicParsing="false" text="Get Image" />
+      <Button layoutX="233.0" layoutY="567.0" mnemonicParsing="false" text="Exit" />
+      <Button layoutX="141.0" layoutY="567.0" mnemonicParsing="false" text="Load Image" />
+      <Label layoutX="500.0" layoutY="174.0" text="Image of the day:" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextArea layoutX="141.0" layoutY="175.0" prefHeight="20.0" prefWidth="300.0" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="141.0" AnchorPane.rightAnchor="559.0" AnchorPane.topAnchor="175.0" />
+      <TextArea layoutX="59.0" layoutY="313.0" prefHeight="200.0" prefWidth="375.0" />
+      <DatePicker layoutX="106.0" layoutY="202.0" prefHeight="25.0" AnchorPane.bottomAnchor="423.0" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="720.0" AnchorPane.topAnchor="202.0" />
+      <TextArea fx:id="type_desc" layoutX="106.0" layoutY="229.0" prefHeight="25.0" prefWidth="175.0" AnchorPane.bottomAnchor="396.0" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="719.0" AnchorPane.topAnchor="229.0" />
+      <TextArea fx:id="credit_desc" layoutX="116.0" layoutY="256.0" prefHeight="25.0" prefWidth="165.0" AnchorPane.bottomAnchor="396.0" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="719.0" AnchorPane.topAnchor="229.0" />
+      <ImageView fitHeight="400.0" fitWidth="450.0" layoutX="500.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
