@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
@@ -25,14 +24,14 @@ private Stage primaryStage;
 			
 			FXMLLoader loader = new FXMLLoader(Main.class.getResource("/view/MainWindowView.fxml"));
 			AnchorPane pane = loader.load();
+			Scene scene = new Scene(pane);
 			
 			MainWindowController mainWindowController = loader.getController();
-			mainWindowController.setMain(this);
+			mainWindowController.setMain(this,primaryStage);
 			
-			Scene scene = new Scene(pane);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Astro Catcher");
-			primaryStage.setResizable(false);
+			//primaryStage.setResizable(false);
 			primaryStage.show();
 			
 		} 
