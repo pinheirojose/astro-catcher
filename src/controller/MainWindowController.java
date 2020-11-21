@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -153,10 +154,16 @@ public class MainWindowController {
 		try(InputStream in = new URL(url).openStream()){
 		    String imagePath = "C:\\temp\\" + getTodaysDate() + ".jpg";
 		    String changedPath = "file:///C:/temp/" + getTodaysDate() + ".jpg";
-		    //TODO: Check if image already exists in directory
-		   // Files.copy(in, Paths.get(imagePath));
-		    Image image = new Image(changedPath);
-		    imageview.setImage(image);
+		    File f = new File(imagePath);
+		    if(f.exists()) {
+			    Image image = new Image(changedPath);
+			    imageview.setImage(image);
+		    }
+		    else {
+		    	Files.copy(in, Paths.get(imagePath));
+			    Image image = new Image(changedPath);
+			    imageview.setImage(image);
+		    }
 		}
 		 catch (IOException e) {
 			 e.printStackTrace();
