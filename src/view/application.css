@@ -1,1 +1,33 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+
+.button{
+	-fx-background-radius: 0px;
+	-fx-background-color:  #242d3e ;
+	-fx-border-color: #FFFFFF;
+	-fx-font-family: "Helvetica Neue Light";
+	-fx-font-size: 12px;
+	-fx-text-fill: #FFFFFF;
+}
+
+.button:pressed{
+	-fx-background-color:  #93d2bd;
+}
+
+.text-area .content{
+	-fx-background-color: #93d2bd;
+}
+
+.label{
+	-fx-font-family: "Helvetica Neue Light";
+	-fx-font-size: 15px;
+}
+
+.title{
+	-fx-background-image: url("../images/title.png");
+	-fx-background-repeat: no-repeat;
+}
+
+.date-picker .text-field{
+	-fx-control-inner-background: #93d2bd;
+}
