@@ -2,20 +2,31 @@
 
 
 .button{
-	-fx-background-radius: 0px;
+	-fx-background-radius: 40px;
 	-fx-background-color:  #242d3e ;
 	-fx-border-color: #FFFFFF;
 	-fx-font-family: "Helvetica Neue Light";
 	-fx-font-size: 12px;
 	-fx-text-fill: #FFFFFF;
+	-fx-border-radius: 40px;
+	-fx-border-width: 2px;
 }
 
 .button:pressed{
 	-fx-background-color:  #93d2bd;
 }
 
+.button:hover{
+	-fx-background-color:  #93d2bd;
+}
+
 .text-area .content{
 	-fx-background-color: #93d2bd;
+}
+
+.text-area{
+	-fx-font-size: 12px;
+	-fx-min-height: 31px;
 }
 
 .label{

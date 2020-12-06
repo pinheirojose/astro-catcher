@@ -28,9 +28,9 @@ public class MainWindowController {
 
 	private Main main;
 	private Stage primaryStage;
-	@FXML private TextArea nasaapi, type_desc, credit_desc;
+	@FXML private TextArea nasaapi, type_desc, title_desc, log_desc;
 	@FXML private DatePicker date;
-	@FXML private Button getimage_btn;
+	@FXML private Button getimage_btn, exit_btn, loadimage_btn;
 	@FXML private ImageView imageview;
 	
 	public void setMain(Main main, Stage primaryStage) {
@@ -65,9 +65,16 @@ public class MainWindowController {
 		Button btn = (Button)event.getSource();
 		try {
 			if (btn.getId().equals("getimage_btn")) {
-				downloadImage(getImageURL(getImageProcess()));
+				log_desc.setText("");
+				log_desc.setText("Getting Today's Astronomy Picture of the Day");
+				String jsonMessage = getImageProcess();
+				downloadImage(getImageURL(jsonMessage));
+				getImageTitle(jsonMessage);
 			} else if (btn.getId().equals("loadimage_btn")) {
 				// TODO:loadImageProcess()
+				String log = log_desc.getText();
+				log = log + "\nTODO: Image Loader still in progress";
+				log_desc.setText(log);
 			} else if (btn.getId().equals("exit_btn")){
 				primaryStage.close();
 			} 
@@ -90,6 +97,9 @@ public class MainWindowController {
 	        BufferedReader in = new BufferedReader(new InputStreamReader(nasa.getInputStream()));
 	        String jsonMessage = in.readLine();
 	        if(getMediaType(jsonMessage)){
+	        	String log = log_desc.getText();
+	        	log = log + "\nWe got an Image!";
+	        	log_desc.setText(log);
 	        	type_desc.setText("Image");
 	        	return jsonMessage;
 	        }
@@ -164,15 +174,37 @@ public class MainWindowController {
 			    Image image = new Image(changedPath);
 			    imageview.setImage(image);
 		    }
+		    
+		    String log = log_desc.getText();
+        	log = log + "\nImage Loaded!";
+        	log = log + "\nYou can find your image in the path: C:/temp/";
+        	log_desc.setText(log);
 		}
 		 catch (IOException e) {
 			 e.printStackTrace();
 		}
 	 }
-	    
+	
+	/*
+	 * getTodaysDate()
+	 * 
+	 * Get todays date using LocalDateTime
+	 */
 	public String getTodaysDate(){
 	    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
 	    LocalDateTime now = LocalDateTime.now();  
 	    return dtf.format(now);      
+	}
+	
+	public void getImageTitle(String jsonMessage){
+		String []message = jsonMessage.split(",(?!\\s)");
+		String title = "";
+		String []titleSearch = message[5].split(":");
+		
+		for(int i = 1; i<titleSearch.length; i++) {
+			title = title + titleSearch[i];
+		}
+		
+		title_desc.setText(title);
 	}
 }
