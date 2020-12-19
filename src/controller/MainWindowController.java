@@ -92,7 +92,7 @@ public class MainWindowController {
 	private String getImageProcess() throws Exception {
 		
 		try {
-			URL nasaApi = new URL("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY");
+			URL nasaApi = new URL(formatApiUrl());
 	        URLConnection nasa = nasaApi.openConnection();
 	        BufferedReader in = new BufferedReader(new InputStreamReader(nasa.getInputStream()));
 	        String jsonMessage = in.readLine();
@@ -107,9 +107,27 @@ public class MainWindowController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		 return "";
+		String log = log_desc.getText();
+    	log = log + "\nTo bad... Today we got a video!";
+    	log_desc.setText(log);
+    	type_desc.setText("Video: Not Supported");
+		return "";
 	}
 	
+	/*
+	 * formatApiUrl()
+	 * 
+	 * Takes date entered by user and formats the API String to 
+	 * do the request
+	 */
+	private String formatApiUrl() {
+		
+		String api = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
+		String localdate = dateEntered();
+		
+		return api + "&date=" + localdate;
+	}
+
 	/*
 	 * getMediaType(String inputLine)
 	 * 
@@ -162,8 +180,8 @@ public class MainWindowController {
 	 */
 	public void downloadImage(String url){
 		try(InputStream in = new URL(url).openStream()){
-		    String imagePath = "C:\\temp\\" + getTodaysDate() + ".jpg";
-		    String changedPath = "file:///C:/temp/" + getTodaysDate() + ".jpg";
+		    String imagePath = "C:\\temp\\" + dateEntered() + ".jpg";
+		    String changedPath = "file:///C:/temp/" + dateEntered() + ".jpg";
 		    File f = new File(imagePath);
 		    if(f.exists()) {
 			    Image image = new Image(changedPath);
@@ -196,15 +214,42 @@ public class MainWindowController {
 	    return dtf.format(now);      
 	}
 	
+	/*
+	 * dateEntered()
+	 * 
+	 * Get the date entered by user
+	 */
+	public String dateEntered(){
+	    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+	    LocalDate localdate = date.getValue(); 
+	    
+	    return dtf.format(localdate);  
+	}
+	
+	/*
+	 * getImageTitle(String jsonMessage)
+	 * 
+	 * Get image title 
+	 */
 	public void getImageTitle(String jsonMessage){
 		String []message = jsonMessage.split(",(?!\\s)");
-		String title = "";
-		String []titleSearch = message[5].split(":");
 		
-		for(int i = 1; i<titleSearch.length; i++) {
-			title = title + titleSearch[i];
+		String target = "\"title\"";
+		
+		for(int i=0;i<message.length;i++){
+		    String []title = message[i].split(":");
+		    if(title[0].equals(target) && title.length > 2){
+		        String titleClean = title[1]+":"+title[2];
+		        titleClean = titleClean.replace("\"","");
+		        title_desc.setText(titleClean);
+		        break;
+		    }
+		    if(title[0].equals(target)) {
+		    	String titleClean = title[1];
+		    	titleClean = titleClean.replace("\"","");
+		    	title_desc.setText(titleClean);
+		    }
+		    
 		}
-		
-		title_desc.setText(title);
 	}
 }
