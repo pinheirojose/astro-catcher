@@ -31,7 +31,7 @@ private Stage primaryStage;
 			
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Astro Catcher");
-			//primaryStage.setResizable(false);
+			primaryStage.setResizable(false);
 			primaryStage.show();
 			
 		} 

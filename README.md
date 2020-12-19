@@ -15,4 +15,6 @@ The idea to use NASA API to get the Astronomy Picture of the day.
 * [SceneBuilder](https://gluonhq.com/products/scene-builder/)
 
 ## Final Result
-In progress
+
+Check out the first release. 
+Download and try!  

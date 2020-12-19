@@ -30,7 +30,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="59.0" layoutY="272.0" text="Title" textFill="WHITE">
+      <Label layoutX="59.0" layoutY="272.0" text="Title:" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -41,8 +41,8 @@
          </font>
       </Label>
       <Button fx:id="getimage_btn" layoutX="60.0" layoutY="567.0" mnemonicParsing="false" onAction="#handleAction" text="Get Image" />
-      <Button fx:id="exit_btn" layoutX="233.0" layoutY="567.0" mnemonicParsing="false" onAction="#handleAction" text="Exit" />
-      <Button fx:id="loadimage_btn" layoutX="141.0" layoutY="567.0" mnemonicParsing="false" onAction="#handleAction" text="Load Image" />
+      <Button fx:id="exit_btn" layoutX="141.0" layoutY="567.0" mnemonicParsing="false" onAction="#handleAction" text="Exit" />
+<!--       <Button fx:id="loadimage_btn" layoutX="141.0" layoutY="567.0" mnemonicParsing="false" onAction="#handleAction" text="Load Image" /> -->
       <Label layoutX="500.0" layoutY="149.0" text="Image of the day:" textFill="WHITE">
          <font>
             <Font size="18.0" />
@@ -52,7 +52,7 @@
       <TextArea fx:id="log_desc" layoutX="59.0" layoutY="343.0" prefHeight="200.0" prefWidth="375.0" styleClass="text-area" />
       <DatePicker fx:id="date" layoutX="107.0" layoutY="189.0" prefHeight="25.0" styleClass="fields" AnchorPane.bottomAnchor="436.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="719.0" AnchorPane.topAnchor="189.0" />
       <TextArea fx:id="type_desc" layoutX="106.0" layoutY="229.0" prefHeight="25.0" prefWidth="175.0" styleClass="text-area" AnchorPane.bottomAnchor="396.0" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="719.0" AnchorPane.topAnchor="229.0" />
-      <TextArea fx:id="title_desc" layoutX="107.0" layoutY="270.0" prefHeight="25.0" prefWidth="165.0" styleClass="text-area" AnchorPane.bottomAnchor="355.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="718.0" AnchorPane.topAnchor="270.0" />
+      <TextArea fx:id="title_desc" layoutX="107.0" layoutY="270.0" prefHeight="25.0" prefWidth="250.0" styleClass="text-area" AnchorPane.bottomAnchor="355.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="643.0" AnchorPane.topAnchor="270.0" />
       <ImageView fx:id="imageview" fitHeight="432.0" fitWidth="450.0" layoutX="500.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
