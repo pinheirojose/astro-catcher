@@ -49,6 +49,10 @@ public class MainWindowController {
 	public void initialize() {
 		String nasaApi = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
 		nasaapi.setText(nasaApi);
+		nasaapi.setEditable(false); 
+		type_desc.setEditable(false); 
+		title_desc.setEditable(false); 
+		log_desc.setEditable(false);
 		date.setValue(LocalDate.now());
 	}
 	
